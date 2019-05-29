@@ -22,30 +22,13 @@ const options = {
 
 const pg = pgPromise(options);
 
-const connectionsArray = [];
-
-/**
- * Create connection to data base if not exists
- * Return data base connection
- */
-function getConnection(dbName) {
-    let connection = connectionsArray.find(m => m.key === dbName);
-
-    if (!connection) {
-        connection = { key: dbName, value: pg(dbConnection) };
-        connectionsArray.push(connection);
-    }
-
-    if (!connection) {
-        throw new Error("Doesn't connet to database");
-    }
-
-    return connection.value;
+const connection = {
+    value: pg(dbConnection)
 }
 
 const DataBase = {
-    dbConnection(dbName) {
-        return getConnection(dbName);
+    dbConnection() {
+        return connection.value;
     }
 };
 
