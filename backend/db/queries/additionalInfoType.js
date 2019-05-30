@@ -9,7 +9,6 @@ class additionalInfoQueries extends BaseQuery {
     constructor(dbConn) {
         super(dbConn);
         this.tablesInfo = {
-            data: BaseQuery.tableData("method_additional_info_data", "methods", ["id", "username", "password", "role"]),
             type: BaseQuery.tableData("method_additional_info_types", "methods", ["id", "title"])
         };
     }
