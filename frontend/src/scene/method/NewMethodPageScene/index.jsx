@@ -4,7 +4,7 @@ import pricesApi from "../../../api/prices";
 
 let comment = 0;
 let tier = "";
-class NewPricePageScene extends Component {
+class NewMethodPageScene extends Component {
     // eslint-disable-next-line class-methods-use-this
     createNewPrice() {
         pricesApi.addPrice({ comment: comment.value, tier: tier.value }).then((response) => {
@@ -56,4 +56,4 @@ class NewPricePageScene extends Component {
     }
 }
 
-export default NewPricePageScene;
+export default NewMethodPageScene;

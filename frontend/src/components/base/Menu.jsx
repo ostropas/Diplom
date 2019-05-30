@@ -35,10 +35,10 @@ class Menu extends Component {
                     {this.state.username === "" ? (<div className="navbar-nav mr-auto menu"></div>) : (
                         <ul className="navbar-nav mr-auto menu">
                             <li className="nav-item">
-                                <Link to="/players" className="nav-link">Поиск по приемам</Link>
+                                <Link to="/methods" className="nav-link">Поиск по приемам</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/offers" className="nav-link">Поля конструктивных приемов</Link>
+                                <Link to="/fields" className="nav-link">Поля конструктивных приемов</Link>
                             </li>
                         </ul>)}
                     {this.state.username === "" ? (

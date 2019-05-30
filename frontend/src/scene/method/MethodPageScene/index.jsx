@@ -15,7 +15,7 @@ const Platforms = [
     "FB"
 ];
 
-class PlayerPage extends Component {
+class MethodPage extends Component {
     _isMounted = false;
 
     constructor(props) {
@@ -252,4 +252,4 @@ class PlayerPage extends Component {
     }
 }
 
-export default PlayerPage;
+export default MethodPage;
