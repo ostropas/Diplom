@@ -117,10 +117,6 @@
       "web.jsx",
       "jsx",
       "node"
-    ],
-    "watchPlugins": [
-      "C:\\Workspace\\tea\\testReactProj\\ttp-admin-panel\\node_modules\\jest-watch-typeahead\\filename.js",
-      "C:\\Workspace\\tea\\testReactProj\\ttp-admin-panel\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {

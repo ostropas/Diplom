@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.NODE_ENV === "production" ? "https://ttp.morkwa.com:8071" : "http://localhost:8000";
-// const BASE_URL = "https://ttp.morkwa.com:8071";
+const BASE_URL = process.env.NODE_ENV === "production" ? "http://localhost:8000" : "http://localhost:8000";
 
 // eslint-disable-next-line import/prefer-default-export
 export const configureApi = () => {
