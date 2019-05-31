@@ -21,7 +21,7 @@ class usersQueries extends BaseQuery {
 
   async userById(id) {
     return this.dbConnection.any(
-      "SELECT id, username, password, role " + "FROM $1 " + "WHERE id = $2;",
+      "SELECT id, username, password, role FROM $1 WHERE id = $2;",
       [this.tablesInfo.userDataItem.tableName, id]
     );
   }

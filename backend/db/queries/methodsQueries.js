@@ -73,7 +73,7 @@ class MethodsQueries extends BaseQuery {
   }
 
   async deleteMethod(id) {
-    return this.dbConnection.none("DELETE FROM $1 " + "WHERE id = $2;", [
+    return this.dbConnection.none("DELETE FROM $1 WHERE id = $2;", [
       this.tablesInfo.method.tableName,
       id
     ]);

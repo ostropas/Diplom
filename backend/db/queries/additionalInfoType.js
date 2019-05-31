@@ -17,7 +17,7 @@ class additionalInfoQueries extends BaseQuery {
   }
 
   async getAllAdditionalInfoTypes() {
-    return this.dbConnection.any("SELECT $1:name " + "FROM $2;", [
+    return this.dbConnection.any("SELECT $1:name FROM $2;", [
       this.tablesInfo.type.columns,
       this.tablesInfo.type.tableName
     ]);
@@ -25,7 +25,7 @@ class additionalInfoQueries extends BaseQuery {
 
   async getAdditionalInfoType(id) {
     return this.dbConnection.any(
-      "SELECT $1:name " + "FROM $2 " + "WHERE id = $3",
+      "SELECT $1:name FROM $2 WHERE id = $3",
       [this.tablesInfo.type.columns, this.tablesInfo.type.tableName, id]
     );
   }
