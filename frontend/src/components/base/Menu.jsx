@@ -46,9 +46,6 @@ class Menu extends Component {
                             <li className="nav-item">
                                 <Link to="/auth/login" className="nav-link">Войти</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <a className="nav-link" href="/auth/register">Register</a>
-                            </li> */}
                         </ul>
                     ) : (
                         <ul className="navbar-nav justify-content-end">

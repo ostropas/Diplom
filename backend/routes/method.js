@@ -47,7 +47,7 @@ router.post(`${BASE_URL}/add`, async (ctx) => {
 });
 
 /**
- * Add method
+ * Delete method
  */
 router.delete(`${BASE_URL}/:id`, async (ctx) => {
     const user = await auth.getUser(ctx.headers["x-access-token"]);
