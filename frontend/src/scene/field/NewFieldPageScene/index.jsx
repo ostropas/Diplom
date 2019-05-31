@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import MainContainer from "../../../containers/layout.jsx";
-// eslint-disable-next-line import/extensions
 import additionalFieldsApi from "../../../api/additionalFileds";
 
 let data = 0;
 class NewFieldPage extends Component {
-    // eslint-disable-next-line class-methods-use-this
     CreateNewField() {
         additionalFieldsApi.addType(data.value).then(() =>{
             window.location.href = "/fields";

@@ -28,8 +28,8 @@ class App extends Component {
                     <Switch onUpdate={() => window.scrollTo(0, 0)}>
                         <Route exact path='/' component={IndexScene}/>
                         <Route exact path='/methods' component={MethodsScene}/>
-                        <Route exact path='/methods/:id' component={MethodPage}/>
                         <Route exact path='/methods/new' component={NewMethodPage}/>
+                        <Route exact path='/methods/:id' component={MethodPage}/>                        
                         <Route exact path='/fields' component={FieldsPage}/>
                         <Route exact path='/fields/new' component={NewFieldPage}/>
                         {/* <Route exact path='/offers/new/:id' component={NewFieldPage}/> */}
