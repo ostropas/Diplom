@@ -15,9 +15,8 @@ router.registerRoutes(app);
 
 app.listen(8000);
 
-app.on("error", (err) => {
-    // eslint-disable-next-line no-param-reassign
-    err.expose = true;
+app.on("error", err => {
+  err.expose = true;
 });
 
 console.log("Backend started");

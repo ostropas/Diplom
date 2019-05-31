@@ -4,12 +4,12 @@ const additionalInfo = require("./additionalInfo.js");
 const method = require("./method.js");
 
 function registerRoutes(app) {
-    app.use(authorization.routes());
-    app.use(userRouter.routes());
-    app.use(additionalInfo.routes());
-    app.use(method.routes());
+  app.use(authorization.routes());
+  app.use(userRouter.routes());
+  app.use(additionalInfo.routes());
+  app.use(method.routes());
 }
 
 module.exports = {
-    registerRoutes
+  registerRoutes
 };

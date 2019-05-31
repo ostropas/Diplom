@@ -5,30 +5,30 @@
 
 class AdditionalInfoTypeModel {
     constructor() {
-        this.additionalInfoQueries = {};
+      this.additionalInfoQueries = {};
     }
-
+  
     /**
      * List of all icons
      */
     async allTypes() {
-        return this.additionalInfoQueries.getAllAdditionalInfoTypes();
+      return this.additionalInfoQueries.getAllAdditionalInfoTypes();
     }
-
+  
     /**
      * Get type
      */
     async getType(id) {
-        return this.additionalInfoQueries.getAdditionalInfoType(id);
+      return this.additionalInfoQueries.getAdditionalInfoType(id);
     }
-
+  
     /**
      * Add type
      */
     async addType(title) {
-        return this.additionalInfoQueries.createNewAdditionalInfoType(title);
+      return this.additionalInfoQueries.createNewAdditionalInfoType(title);
     }
-}
-
-
-module.exports = AdditionalInfoTypeModel;
+  }
+  
+  module.exports = AdditionalInfoTypeModel;
+  

@@ -10,40 +10,46 @@ const BASE_URL = "/api/additionalInfoTypes";
 /**
  * Get all types
  */
-router.get(`${BASE_URL}`, async (ctx) => {
-    const user = await auth.getUser(ctx.headers["x-access-token"]);
+router.get(`${BASE_URL}`, async ctx => {
+  const user = await auth.getUser(ctx.headers["x-access-token"]);
 
-    const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(user.connection);
+  const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(
+    user.connection
+  );
 
-    AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
+  AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
 
-    ctx.body = await AdditionalnfoTypeModel.allTypes();
+  ctx.body = await AdditionalnfoTypeModel.allTypes();
 });
 
 /**
  * Get one type
  */
-router.get(`${BASE_URL}/:id`, async (ctx) => {
-    const user = await auth.getUser(ctx.headers["x-access-token"]);
+router.get(`${BASE_URL}/:id`, async ctx => {
+  const user = await auth.getUser(ctx.headers["x-access-token"]);
 
-    const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(user.connection);
+  const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(
+    user.connection
+  );
 
-    AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
+  AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
 
-    ctx.body = await AdditionalnfoTypeModel.getType(ctx.params.id);
+  ctx.body = await AdditionalnfoTypeModel.getType(ctx.params.id);
 });
 
 /**
  * Add one type
  */
-router.post(`${BASE_URL}/add`, async (ctx) => {
-    const user = await auth.getUser(ctx.headers["x-access-token"]);
+router.post(`${BASE_URL}/add`, async ctx => {
+  const user = await auth.getUser(ctx.headers["x-access-token"]);
 
-    const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(user.connection);
+  const additionalnfoTypeQueries = new AdditionalnfoTypeQueries(
+    user.connection
+  );
 
-    AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
+  AdditionalnfoTypeModel.additionalInfoQueries = additionalnfoTypeQueries;
 
-    ctx.body = await AdditionalnfoTypeModel.addType(ctx.request.body.title);
+  ctx.body = await AdditionalnfoTypeModel.addType(ctx.request.body.title);
 });
 
 module.exports = router;

@@ -7,9 +7,9 @@ const BASE_URL = "/api/user";
 /**
  * Get usernamse
  */
-router.get(`${BASE_URL}`, async (ctx) => {
-    const user = await auth.getUser(ctx.headers["x-access-token"]);
-    ctx.body = { status: "ok", username: user.username };
+router.get(`${BASE_URL}`, async ctx => {
+  const user = await auth.getUser(ctx.headers["x-access-token"]);
+  ctx.body = { status: "ok", username: user.username };
 });
 
 module.exports = router;
