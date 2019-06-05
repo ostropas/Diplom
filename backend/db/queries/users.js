@@ -42,7 +42,7 @@ class usersQueries extends BaseQuery {
   addUser(user) {
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(user.password, salt);
-    const defaultRole = 5;
+    const defaultRole = 3;
 
     const role = user.role || defaultRole;
     return this.dbConnection.one(

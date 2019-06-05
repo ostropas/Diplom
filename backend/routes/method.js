@@ -38,6 +38,10 @@ router.post(`${BASE_URL}/find`, async ctx => {
  */
 router.post(`${BASE_URL}/add`, async ctx => {
   const user = await auth.getUser(ctx.headers["x-access-token"]);
+  if (user.role !== 1 || user.role !== 2) {
+    ctx.body = -1;
+    return;
+  }
 
   const methodQueries = new MethodQueries(user.connection);
 
@@ -51,6 +55,10 @@ router.post(`${BASE_URL}/add`, async ctx => {
  */
 router.delete(`${BASE_URL}/:id`, async ctx => {
   const user = await auth.getUser(ctx.headers["x-access-token"]);
+  if (user.role !== 1) {
+    ctx.body = { status: "incorrect role" };
+    return;
+  }
 
   const methodQueries = new MethodQueries(user.connection);
 

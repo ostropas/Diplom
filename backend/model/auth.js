@@ -26,7 +26,7 @@ async function getUser(token) {
     throw { message: "Wrong username of password" };
   }
 
-  return { id, username: user[0].username, connection: db.dbConnection() };
+  return { id, username: user[0].username, role: user[0].role, connection: db.dbConnection() };
 }
 
 module.exports = { getUser };
