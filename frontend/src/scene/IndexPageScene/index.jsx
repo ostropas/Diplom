@@ -8,7 +8,7 @@ class IndexPage extends Component {
       <MainContainer>
         <div className="container">
           <div className="row justify-content-md-center">
-            <h4>Конструктивные приемы</h4>
+            <h4>Конструкторские и технические приемы</h4>
           </div>
         </div>
       </MainContainer>
