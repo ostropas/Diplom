@@ -38,7 +38,7 @@ router.post(`${BASE_URL}/find`, async ctx => {
  */
 router.post(`${BASE_URL}/add`, async ctx => {
   const user = await auth.getUser(ctx.headers["x-access-token"]);
-  if (user.role !== 1 || user.role !== 2) {
+  if (user.role !== 1 && user.role !== 2) {
     ctx.body = -1;
     return;
   }

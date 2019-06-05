@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MainContainer from "../../../containers/layout.jsx";
 import methodsApi from "../../../api/methods";
+import Cookies from 'universal-cookie';
 
 let SearchingString = "";
 class MethodsPage extends Component {
@@ -11,9 +12,10 @@ class MethodsPage extends Component {
         {
           id: -1,
           title: "",
-          description: ""
+          description: ""          
         }
-      ]
+      ],
+      userRole: 3
     };
   }
 
@@ -22,6 +24,13 @@ class MethodsPage extends Component {
       alert("You aren't authenticated");
       window.location.href = "/auth/login";
     }
+  }
+
+  componentDidMount() {
+    const cookies = new Cookies();
+    this.setState({
+      userRole: Number(cookies.get('userRole'))
+    });
   }
 
   redirectToPlayer(id) {
@@ -46,6 +55,8 @@ class MethodsPage extends Component {
   }
 
   render() {
+    console.log(this.state.userRole);
+    
     return (
       <MainContainer>
         <div className="container">
@@ -69,7 +80,8 @@ class MethodsPage extends Component {
             </div>
           </div>
           <br />
-          <div className="form-row">
+          {this.state.userRole === 1 || this.state.userRole === 2 ? (
+            <div className="form-row">
             <button
               className="btn btn-primary"
               onClick={() => {
@@ -79,6 +91,7 @@ class MethodsPage extends Component {
               Создать новый метод
             </button>
           </div>
+          ) : (<div></div>)}          
           <br />
           <div className="row">
             <table className="table">

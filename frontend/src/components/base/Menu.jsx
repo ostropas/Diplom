@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import userApi from "../../api/user";
+import Cookies from 'universal-cookie';
 import "../../style/bootstrap/bootstrap.min.css";
 import "../../style/base/menu.scss";
 
@@ -16,7 +17,6 @@ class Menu extends Component {
   componentDidMount() {
     userApi.getNickname().then(response => {
       if (response.status === 200) {
-        console.log(response.data);
         let currentRole = "юзер";
         switch (response.data.role) {
           case 1:
@@ -28,7 +28,13 @@ class Menu extends Component {
           case 3:
             currentRole = "Юзер";
             break;
+            default:
+              break;
         }
+
+        const cookies = new Cookies();
+        cookies.set('userRole', response.data.role);
+        
         this.setState({
           username: response.data.username,
           role: currentRole

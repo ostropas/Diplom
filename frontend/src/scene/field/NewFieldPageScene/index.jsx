@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MainContainer from "../../../containers/layout.jsx";
 import additionalFieldsApi from "../../../api/additionalFileds";
 
+
 let data = 0;
 class NewFieldPage extends Component {
   CreateNewField() {
@@ -10,7 +11,7 @@ class NewFieldPage extends Component {
     });
   }
 
-  render() {
+  render() {    
     return (
       <MainContainer>
         <div className="container">

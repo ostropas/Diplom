@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import MainContainer from "../../../containers/layout.jsx";
 import additionalFieldsApi from "../../../api/additionalFileds";
+import Cookies from 'universal-cookie';
 
 class FieldsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allFields: []
+      allFields: [],
+      userRole: 3
     };
   }
 
@@ -18,15 +20,17 @@ class FieldsPage extends Component {
   }
 
   componentDidMount() {
+    const cookies = new Cookies();
     additionalFieldsApi.getAllTypes().then(response => {
       this.setState({
-        allFields: response.data
+        allFields: response.data,
+        userRole: Number(cookies.get('userRole'))
       });
     });
   }
 
   render() {
-    console.log(this.state.allFields);
+    console.log(this.state.userRole);
 
     return (
       <MainContainer>
@@ -55,7 +59,8 @@ class FieldsPage extends Component {
               </tbody>
             </table>
           </div>
-          <div className="row">
+          {this.state.userRole === 1 ? (
+            <div className="row">
             <div className="form-row">
               <button
                 className="btn btn-primary"
@@ -67,6 +72,8 @@ class FieldsPage extends Component {
               </button>
             </div>
           </div>
+          ) : (<div></div>)}
+          
         </div>
       </MainContainer>
     );

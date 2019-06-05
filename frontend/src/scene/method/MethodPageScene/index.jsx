@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MainContainer from "../../../containers/layout.jsx";
 import methodsApi from "../../../api/methods";
+import Cookies from 'universal-cookie';
 
 var isDeleting = false;
 class MethodPage extends Component {
@@ -9,7 +10,8 @@ class MethodPage extends Component {
     this.state = {
       method: {
         additionalInfo: []
-      }
+      },
+      userRole: 3
     };
   }
 
@@ -21,9 +23,11 @@ class MethodPage extends Component {
   }
 
   componentDidMount() {
+    const cookies = new Cookies();
     methodsApi.getOneMethod(this.props.match.params.id).then(response => {
       this.setState({
-        method: response.data
+        method: response.data,
+        userRole: Number(cookies.get('userRole'))
       });
     });
   }
@@ -74,7 +78,8 @@ class MethodPage extends Component {
             </div>
           ))}
           <br />
-          <div className="col-12">
+          {this.state.userRole === 1 ? (
+            <div className="col-12">
             <input
               className="btn btn-danger"
               onClick={() => {
@@ -84,6 +89,8 @@ class MethodPage extends Component {
               value="Удалить метод"
             />
           </div>
+          ): (<div></div>)}
+          
         </div>
       </MainContainer>
     );
