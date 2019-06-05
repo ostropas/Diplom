@@ -8,15 +8,30 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ""
+      username: "",
+      role: ""
     };
   }
 
   componentDidMount() {
     userApi.getNickname().then(response => {
       if (response.status === 200) {
+        console.log(response.data);
+        let currentRole = "юзер";
+        switch (response.data.role) {
+          case 1:
+            currentRole = "Админ";
+            break;
+          case 2:
+            currentRole = "Эксперт";
+            break;
+          case 3:
+            currentRole = "Юзер";
+            break;
+        }
         this.setState({
-          username: response.data.username
+          username: response.data.username,
+          role: currentRole
         });
       }
     });
@@ -63,6 +78,11 @@ class Menu extends Component {
               <li className="nav-item">
                 <Link to="/auth/status" className="nav-link">
                   {this.state.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/auth/status" className="nav-link">
+                  {this.state.role}
                 </Link>
               </li>
               <li className="nav-item">
