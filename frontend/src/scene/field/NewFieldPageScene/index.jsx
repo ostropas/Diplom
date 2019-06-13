@@ -3,10 +3,11 @@ import MainContainer from "../../../containers/layout.jsx";
 import additionalFieldsApi from "../../../api/additionalFileds";
 
 
-let data = 0;
+let data = "";
+let type = 0;
 class NewFieldPage extends Component {
   CreateNewField() {
-    additionalFieldsApi.addType(data.value).then(() => {
+    additionalFieldsApi.addType({data: data, type: type}).then(() => {
       window.location.href = "/fields";
     });
   }
@@ -30,10 +31,25 @@ class NewFieldPage extends Component {
                     type="text"
                     name="tier"
                     id="data"
-                    ref={input => {
-                      data = input;
-                    }}
+                    onChange={(e) => {data = e.target.value}}
                   />
+                </div>
+              </div>
+              <div className="form-row">
+                <div className="col-4">
+                  <label htmlFor="data">Тип</label>
+                </div>
+                <div className="col-8">
+                  <select
+                    className="form-control"
+                    type="text"
+                    name="tier"
+                    id="data"
+                    onChange = {(e) => {type = e.target.value}}
+                  > 
+                  <option value="0">Текст</option>
+                  <option value="1">Число</option>
+                  </select>
                 </div>
               </div>
               <div className="form-row">

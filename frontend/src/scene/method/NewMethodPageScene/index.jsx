@@ -57,6 +57,8 @@ class NewMethodPageScene extends Component {
   }
 
   render() {
+    console.log(this.state.allFields);
+    
     return (
       <MainContainer>
         <div className="container">
@@ -93,12 +95,21 @@ class NewMethodPageScene extends Component {
                     <label htmlFor="description">{element.title + ":"}</label>
                   </div>
                   <div className="col-10">
-                    <input
+                    {element.type === "0" ? (<input
                       className="form-control"
                       type="text"
                       id={element.id}
                       onBlur={this.saveAdditionalInput.bind(this)}
+                    />) : (
+                      <input
+                      className="form-control"
+                      type="number"
+                      min = "0"
+                      max = "10"
+                      id={element.id}
+                      onBlur={this.saveAdditionalInput.bind(this)}
                     />
+                    )}
                   </div>
                 </div>
               ))}

@@ -11,7 +11,8 @@ class additionalInfoQueries extends BaseQuery {
     this.tablesInfo = {
       type: BaseQuery.tableData("method_additional_info_types", "methods", [
         "id",
-        "title"
+        "title",
+        "type"
       ])
     };
   }
@@ -30,10 +31,10 @@ class additionalInfoQueries extends BaseQuery {
     );
   }
 
-  async createNewAdditionalInfoType(title) {
+  async createNewAdditionalInfoType(info) {
     return this.dbConnection.one(
-      "INSERT INTO $1(title) VALUES($2) RETURNING id",
-      [this.tablesInfo.type.tableName, title]
+      "INSERT INTO $1(title, type) VALUES($2, $3) RETURNING id",
+      [this.tablesInfo.type.tableName, info.data, Number(info.type)]
     );
   }
 }
